@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { DetailsComponent } from './details/details.component';
 import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import{HttpClientModule} from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 import { HomepageComponent } from './homepage/homepage.component'
 import { initializeApp } from "firebase/app";
 
@@ -31,6 +32,7 @@ import { AddplatComponent } from './addplat/addplat.component';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, 
+    NgbModule
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]
