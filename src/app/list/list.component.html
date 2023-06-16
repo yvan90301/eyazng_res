@@ -1,0 +1,36 @@
+<!-- <p>list works!</p> -->
+<nav class="navbar navbar-primary bg-primary">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">EYANG RESTAURATION</span>
+    </div>
+</nav>
+<br>
+ <h2 *ngIf="plats && plats.length >0">{{title}}</h2>
+<br>
+<!-- <button routerLink="/details">GO</button> -->
+
+<div class="my-2">
+    <div class="row">
+        <div class="col-md-4">
+            <span>Rechercher:</span>
+            <b>{{platfilter}}</b>
+        </div>
+        <div class="col-md-3 form-group">
+            <input type="text" class="form-control" [(ngModel)]="platfilter" (ngModelChange)="platfilter = $event">
+        </div>
+    </div>
+</div>
+<div class=" row row-cols-1 row-cols-md-3">
+    <div class="col mb-4" *ngFor="let item of plats">
+        <div class="card" style="width: 18rem;" >
+            <img src="{{item.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{item.nom}}</h5>
+              <p class="card-text">{{item.restaurant}}</p>
+              <p class="card-text">Prix: <b>{{item.prix}}</b></p>
+              <a href="#" class="btn btn-primary" [routerLink]="['/details' , item.id]">Details</a>
+              <button type="button" class="btn btn-warning" (click)="addToCart()">ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+</div>
